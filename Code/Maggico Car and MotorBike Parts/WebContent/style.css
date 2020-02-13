@@ -270,3 +270,62 @@ input[type=text], input[type=password], input[type=number], textarea[type=text]
 #reg:hover {
 	background-image: url("images/grafica/registrati2.jpg");
 }
+
+
+/************************************REGISTRAZIONE************************************/
+.reglayout {
+	background: rgb(0, 0, 0);
+	background: transparent\9;
+	background: rgba(0, 0, 0, 0.3);
+	border: 2px solid #ba0808;
+	border-radius: 15px;
+	margin: 20px 20px 20px 20px;
+	padding: 5px 5px 5px 5px;
+	color: white;
+}
+
+.reglayout section {
+	padding: 30px;
+	line-height: 1.5;
+}
+
+#registrationForm {
+	margin-left: 30px;
+}
+
+#registrationForm input {
+	width: 50%;
+}
+
+.regbutton {
+	width: 100px;
+	height: 40px;
+}
+
+/********************FOOTER***********************/
+.footer {
+	clear: both;
+	background-color: #6f7074;
+	font-family: "Trebuchet MS", Helvetica, sans-serif;
+	padding: 1px;
+	text-align: center;
+	width: 100%;
+}
+
+.footer ul {
+	padding: 0px;
+}
+
+.footer ul li {
+	list-style-type: none;
+}
+
+.footer ul li p {
+	line-height: 0.6;
+	font-size: 8pt;
+}
+
+.footer ul li a img {
+	height: 30px;
+	width: 30xp;
+}
