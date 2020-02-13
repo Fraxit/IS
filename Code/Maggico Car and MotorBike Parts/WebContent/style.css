@@ -330,7 +330,188 @@ input[type=text], input[type=password], input[type=number], textarea[type=text]
 	width: 30xp;
 }
 
+/*****************************SIDENAV PRODOTTI******************/
+#home {
+	top: 320px;
+	background-color: #3d3d3d;
+}
 
+#home img {
+	width: 55px;
+	height: 40px;
+	position: relative;
+	left: 20px;
+}
+
+#auto {
+	top: 380px;
+	background-color: #3d3d3d;
+}
+
+#auto img {
+	width: 35px;
+	height: 40px;
+	position: relative;
+	left: 40px;
+}
+
+#moto {
+	top: 440px;
+	background-color: #3d3d3d;
+}
+
+#moto img {
+	width: 35px;
+	height: 40px;
+	position: relative;
+	left: 40px;
+}
+
+/******************PRODOTTI*******************/
+#addProdBttn, #deleteProdBttn, #submitBttn, #searchBttn{
+	padding: 10px;
+	border-radius: 10px;
+	margin: 10px;
+}
+
+.wrapimg {
+	overflow: hidden;
+	background-color: white;
+}
+
+.products {
+	margin: 40px 0;
+	overflow: hidden;
+}
+
+.products ul li p {
+	display: none;
+}
+
+.products.catalog {
+	margin: 80px auto 40px auto;
+}
+
+.products.category {
+	margin: 10px 0;
+	margin-left: 30px;
+	background-color: rgba(255, 255, 255, 0.3);
+	width: 95%;
+	border-radius: 10px;
+}
+
+.products ul li {
+	float: left;
+	margin: 0;
+	padding: 0;
+	width: 230px;
+	height: 244px;
+	position: relative;
+	border-top: 1px solid #d9d9d9;
+	border-right: 1px solid #d9d9d9;
+	list-style-type: none;
+	margin-right: 10px;
+	margin-bottom: 10px;
+}
+
+.products ul li img {
+	position: relative;
+	height: 153px;
+	width: auto;
+	float: center;
+	margin: auto;
+	top: 0;
+	left: 50%;
+	right: 0;
+	bottom: 0;
+	transform: translate(-50%, 0);
+	overflow: hidden;
+}
+
+.products ul li:hover .addPro, .products ul li:hover .addPro a {
+	opacity: 1;
+}
+
+.products ul li:hover .titlePro {
+	border: 1px solid rgba(51, 51, 51, 1);
+	border-top: 0;
+}
+
+.products ul li:hover .titlePro a {
+	color: #010101;
+}
+
+.addPro {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 228px;
+	height: 153px;
+	border: 1px solid rgba(51, 51, 51, 1);
+	border-bottom: 0;
+	background: rgba(255, 255, 255, 0.5);
+	opacity: 0;
+	-webkit-transition: opacity 0s;
+	-moz-transition: opacity 0s;
+	-o-transition: opacity 0s;
+}
+
+.addPro a {
+	text-decoration: none;
+	display: inline-block;
+	width: 157px;
+	height: 40px;
+	margin: 100px auto auto 40px;
+	background-color: #333;
+	text-align: center;
+	font: 14px/40px 'OpenSans-Italic', sans-serif;
+	color: #fff;
+	opacity: 0;
+	-webkit-transition: opacity 1s;
+	-moz-transition: opacity 1s;
+	-o-transition: opacity 1s;
+}
+
+.titlePro {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 208px;
+	height: 70px;
+	border: 1px solid rgba(51, 51, 51, 0);
+	-webkit-transition: opacity 1s;
+	-moz-transition: opacity 1s;
+	-o-transition: opacity 1s;
+	border-top: 0;
+	padding: 10px;
+	background: rgba(255, 255, 255, 0.5);
+}
+
+.titlePro p, .titlePro span, .titlePro a {
+	text-transform: uppercase;
+}
+
+.titlePro a {
+	color: #003f75;
+	text-decoration: none;
+	display: block;
+}
+
+.titlePro span {
+	color: #a20000;
+}
+
+.view p {
+	top: 5px;
+	margin: 0 10px 0 0;
+}
+
+.view p, .view a {
+	float: left;
+	display: inline-block;
+	text-decoration: none;
+	position: relative;
+}
 /*********************CONTAINERBOX*****************************/
 .containerBox {
 	color: white;
