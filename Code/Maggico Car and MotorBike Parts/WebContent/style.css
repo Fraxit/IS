@@ -329,3 +329,240 @@ input[type=text], input[type=password], input[type=number], textarea[type=text]
 	height: 30px;
 	width: 30xp;
 }
+
+
+
+/*********************CONTATTI*****************************/
+.contactsWrapper {
+	text-align: center;
+	font-size: 62.5%;
+	font-family: 'Cinzel';
+	font-weight: 400;
+}
+
+.contactsWrapper #content {
+	border-radius: 10px;
+}
+
+.contactsWrapper #iuImg {
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 75px;
+	height: 75px;
+}
+
+.contactsWrapper #content {
+	position: relative;
+	max-width: 960px;
+	min-height: 100%;
+	height: auto !important;
+	height: 100%;
+	margin: 0 auto;
+	background-color: #e1d8b7; /* IU Cream */
+	font-family: Palatino, "Palatino Linotype", "Palatino LT STD",
+		"Book Antiqua", Georgia, serif;
+	-webkit-box-shadow: 1em 0 2em #000, -1em 0 3em #000;
+	-moz-box-shadow: 1em 0 2em #000, -1em 0 3em #000;
+	box-shadow: 1em 0 2em #000, -1em 0 3em #000;
+}
+
+.contactsWrapper main {
+	max-width: 601px;
+	margin: 0 auto;
+}
+
+.contactsWrapper ul {
+	list-style: none;
+	margin-left: 0;
+	padding-left: 0;
+}
+
+.contactsWrapper .shadow {
+	text-shadow: -3px 3px 3px #aea79f;
+}
+
+.contactsWrapper .titleCon {
+	font-family: 'Cinzel', serif;
+	font-weight: 400;
+}
+
+.contactsWrapper h1 {
+	margin: 0 auto;
+	padding-top: 75px;
+	font-size: 7em;
+	text-decoration: underline;
+}
+
+.contactsWrapper h2 {
+	font-size: 2em;
+	margin-bottom: 1em;
+}
+
+.contactsWrapper div.location {
+	margin: 0 auto;
+	position: relative;
+}
+
+.contactsWrapper div.addressWrapper {
+	display: inline-block;
+	width: 49%;
+	margin: 65px auto;
+	vertical-align: top;
+}
+
+.contactsWrapper .address li {
+	font-size: 2em;
+	padding: .25em;
+}
+
+.contactsWrapper iframe {
+	display: inline;
+	max-width: 50%;
+	min-width: 300px;
+	margin: 0 auto;
+	border: 1px solid #7d110c; /* IU Crimson */
+}
+
+.contactsWrapper .clear {
+	clear: both;
+}
+
+.contactsWrapper .contact {
+	margin: 3em auto 0;
+}
+
+.contactsWrapper .contact li {
+	padding: 1em .5em;
+	display: inline-block;
+	font-size: 2em;
+}
+
+.contactsWrapper .contact li+li {
+	border-left: 1px solid #7d110c;
+}
+
+.contactsWrapper .contact li a:link {
+	color: #7d110c;
+}
+
+.contactsWrapper .contact li a {
+	text-decoration: none;
+	padding: .5em;
+	border-radius: 4px;
+}
+
+.contactsWrapper .contact span:after {
+	content: attr(data-pc);
+}
+
+@media screen and (max-width: 600px) {
+	.contactsWrapper .contact span:after {
+		content: attr(data-mobile);
+	}
+	.contactsWrapper div.addressWrapper {
+		margin: 0 auto 3em;
+		display: block;
+	}
+	.contactsWrapper ul.contact li a {
+		border: 3px solid #44697D;
+		background-color: #C59217;
+	}
+}
+
+@media screen and (min-width: 266px) and (max-width: 386px) {
+	.contactsWrapper .contact li:last-child {
+		border: none;
+	}
+}
+
+@media screen and (max-width: 265px) {
+	.contactsWrapper .contact li:nth-child(2) {
+		border: none;
+	}
+}
+
+.contactsWrapper div#quote p {
+	font-size: 2em;
+	margin: 2em auto 0;
+}
+
+.contactsWrapper div#quote p span {
+	float: right;
+	font-size: .8em;
+}
+
+.contactsWrapper div#quote p q {
+	font-size: 1em;
+	font-style: italic;
+}
+
+#labelLog:hover {
+	color: red;
+}
+
+/**************************MEDIA*****************************/
+@media ( max-width : 1100px) {
+	.formlogin label {
+		display: none;
+	}
+	.formlogin #errorLabel {
+		display: inline;
+	}
+}
+
+@media ( max-width : 850px) {
+	.formlogin input {
+		width: 140px;
+	}
+	.formlogin .logbutton {
+		float: right;
+		width: 50px;
+		position: absolute;
+		right: 0px;
+	}
+}
+
+@media ( max-width : 555px) {
+	.formlogin {
+		position: absolute;
+		width: 100px;
+	}
+	.formlogin input {
+		width: 80px;
+		margin: 5px;
+		height: fit-content;
+	}
+	.formlogin .logbutton {
+		float: right;
+		width: 50px;
+		position: relative;
+		right: 0px;
+		width: -webkit-fill-available;
+		margin: 2px;
+	}
+}
+
+@media ( max-width : 580px) {
+	div#welcomeDiv {
+		position: absolute;
+	}
+}
+
+@media ( max-width : 640px) {
+	#menuriga li div {
+		width: 80%;
+		background-position-x: center;
+	}
+}
+
+#logoutBttn {
+	padding: 0;
+	border: none;
+	background: none;
+	color: red;
+	padding: 12px 16px;
+	text-decoration: none;
+	display: block;
+	font-size: large;
+}
