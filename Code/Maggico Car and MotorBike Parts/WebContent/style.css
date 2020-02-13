@@ -201,3 +201,72 @@ input[type=text], input[type=password], input[type=number], textarea[type=text]
 	color: #ba0808;
 	text-decoration: none;
 }
+
+
+/**********************************MENU HOME******************************/
+.menu {
+	width: 100%;
+}
+
+#menuriga li {
+	position: relative;
+	list-style-type: none;
+}
+
+#menuriga li a:link, .menuriga2 li a:link, menuriga1 li a:active,
+	.menuriga2 li a:active, menuriga1 li a:hover, .menuriga2 li a:hover,
+	#menuriga li a:visited, .menuriga2 li a:visited {
+	text-decoration: none;
+}
+
+#menuriga li div {
+	margin: 10px;
+	width: 600px;
+	height: 200px;
+	background-color: #ffffff;
+	text-align: center;
+	text-decoration: none;
+	color: white;
+	box-shadow: 5px 5px 10px #000000;
+	margin-left: 50%;
+	transform: translate(-50%, 0);
+	cursor: pointer;
+}
+
+#menuriga li div h1 {
+	position: relative;
+	top: 75%;
+	text-decoration: none;
+	text-shadow: 5px 5px 10px #000000;
+}
+
+#prod {
+	background-image: url("images/grafica/prod.jpg");
+	background-size: 600px 200px;
+	transition-duration: 0.5s;
+}
+
+#prod:hover {
+	background-image: url("images/grafica/prod2.jpg");
+}
+
+
+#contatti {
+	background-image: url("images/grafica/contatta.jpg");
+	background-size: 600px 200px;
+	transition-duration: 0.5s;
+}
+
+#contatti:hover {
+	background-image: url("images/grafica/contatta2.jpg");
+}
+
+#reg {
+	background-image: url("images/grafica/registrati.jpg");
+	background-size: 600px 200px;
+	transition-duration: 0.5s;
+}
+
+#reg:hover {
+	background-image: url("images/grafica/registrati2.jpg");
+}
