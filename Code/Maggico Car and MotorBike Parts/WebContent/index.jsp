@@ -13,7 +13,7 @@
 			</div></li>
 		<%if (request.getSession().getAttribute("user") == null) {%>
 		<li><div id="reg" onclick="location.href='registrazione.jsp';">
-				<h1>REGISTRATI</h1>
+				<h1>SCOPRI I VANTAGGI DI AVERE UN ACCOUNT</h1>
 			</div></li>
 		<%}%>
 	</ul>

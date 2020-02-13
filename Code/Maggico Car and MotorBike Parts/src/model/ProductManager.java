@@ -98,8 +98,6 @@ public class ProductManager {
 
 		String selectSQL = "SELECT * FROM prodotto";
 
-
-
 		try {
 			connection = DriverManagerConnectionPool.getConnection();
 			preparedStatement = connection.prepareStatement(selectSQL);
