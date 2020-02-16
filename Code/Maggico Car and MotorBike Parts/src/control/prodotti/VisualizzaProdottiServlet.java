@@ -2,7 +2,6 @@ package control.prodotti;
 
 
 import model.ProductManager;
-import bean.ProductBean;
 
 import java.io.IOException;
 import java.sql.SQLException;
