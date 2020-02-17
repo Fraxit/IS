@@ -40,7 +40,6 @@ public class AddProdCarrelloServlet extends HttpServlet {
 			try {
 				cartmodel.updateTable(cart,(ClientBean) request.getSession().getAttribute("user"));
 			} catch (SQLException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 
@@ -54,22 +53,20 @@ public class AddProdCarrelloServlet extends HttpServlet {
 					cart.getItems().set(i, prod);
 					cart.getItems().get(i).setQtprod( prod.getQtprod() );
 					
+					request.getSession().setAttribute("cart", cart);	
 					try {
 						cartmodel.updateTable(cart,(ClientBean) request.getSession().getAttribute("user"));
 					} catch (SQLException e) {
-						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
-
-					request.getSession().setAttribute("cart", cart);	
 					response.sendRedirect("prodotti.jsp");
+					return;
 				}
 			}
 			cart.addItem(prod);
 			try {
 				cartmodel.updateTable(cart,(ClientBean) request.getSession().getAttribute("user"));
 			} catch (SQLException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
