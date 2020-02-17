@@ -9,8 +9,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import model.CarrelloManager;
 import model.ProductManager;
 import bean.CartBean;
+import bean.ClientBean;
 import bean.ProductBean;
 
 @WebServlet("/RimuoviProdCarrelloServlet")
@@ -28,6 +30,8 @@ public class RimuoviProdCarrelloServlet extends HttpServlet {
 
 		CartBean cart = (CartBean) request.getSession().getAttribute("cart");
 
+		CarrelloManager cartmodel = new CarrelloManager();
+
 		if(action != null) {
 			if(action.equals("remove")) {
 				try {
@@ -39,21 +43,18 @@ public class RimuoviProdCarrelloServlet extends HttpServlet {
 						if( cart.getItems().get(i).getId() == prod.getId() )
 						{
 							cart.deleteItem(prod);
+							cartmodel.updateTable((CartBean) request.getSession().getAttribute("cart"),(ClientBean) request.getSession().getAttribute("user"));
 						}
 					}
-
-				} catch(SQLException e)
+				}
+				catch(SQLException e)
 				{
 					e.printStackTrace();
 					response.sendRedirect("exception.jsp");
 				}
-
 				request.getSession().removeAttribute("cart");
 				request.getSession().setAttribute("cart", cart);	
 				response.sendRedirect("carrello.jsp");
-
-
-
 			}
 		}
 	}

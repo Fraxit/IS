@@ -1,6 +1,8 @@
 package control.carrello;
 
 import java.io.IOException;
+import java.sql.SQLException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -8,7 +10,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import bean.CartBean;
+import bean.ClientBean;
 import bean.ProductBean;
+import model.CarrelloManager;
 
 @WebServlet("/AddProdCarrelloServlet") 
 public class AddProdCarrelloServlet extends HttpServlet {
@@ -23,7 +27,7 @@ public class AddProdCarrelloServlet extends HttpServlet {
 
 
 		CartBean cart = (CartBean) request.getSession().getAttribute("cart");
-
+		CarrelloManager cartmodel = new CarrelloManager();
 
 
 		ProductBean prod = (ProductBean) request.getSession().getAttribute("bean");
@@ -42,6 +46,14 @@ public class AddProdCarrelloServlet extends HttpServlet {
 				{
 					cart.getItems().set(i, prod);
 					cart.getItems().get(i).setQtprod( prod.getQtprod() );
+					
+					try {
+						cartmodel.updateTable((CartBean) request.getSession().getAttribute("cart"),(ClientBean) request.getSession().getAttribute("user"));
+					} catch (SQLException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+
 					request.getSession().setAttribute("cart", cart);	
 					response.sendRedirect("prodotti.jsp");
 				}
