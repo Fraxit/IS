@@ -202,7 +202,6 @@ input[type=text], input[type=password], input[type=number], textarea[type=text]
 	text-decoration: none;
 }
 
-
 /**********************************MENU HOME******************************/
 .menu {
 	width: 100%;
@@ -270,7 +269,6 @@ input[type=text], input[type=password], input[type=number], textarea[type=text]
 #reg:hover {
 	background-image: url("images/grafica/registrati2.jpg");
 }
-
 
 /************************************REGISTRAZIONE************************************/
 .reglayout {
@@ -874,7 +872,6 @@ textarea[name=pdescription], textarea[name=insdescription]{
 	}
 }
 
-
 /**************************CARRELLO*****************************/
 .prodImage {
 	float: left;
@@ -1119,7 +1116,6 @@ textarea[name=pdescription], textarea[name=insdescription]{
 	border-radius: 10px;
 	margin-bottom: 20px;
 }
-
 
 /*********************CONTAINERBOX*****************************/
 .containerBox {
