@@ -43,7 +43,7 @@ public class RimuoviProdCarrelloServlet extends HttpServlet {
 						if( cart.getItems().get(i).getId() == prod.getId() )
 						{
 							cart.deleteItem(prod);
-							cartmodel.updateTable((CartBean) request.getSession().getAttribute("cart"),(ClientBean) request.getSession().getAttribute("user"));
+							cartmodel.updateTable(cart,(ClientBean) request.getSession().getAttribute("user"));
 						}
 					}
 				}

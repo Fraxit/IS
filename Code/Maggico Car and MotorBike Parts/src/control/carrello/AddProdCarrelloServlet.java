@@ -37,6 +37,13 @@ public class AddProdCarrelloServlet extends HttpServlet {
 		if( cart.getItems().isEmpty() )
 		{
 			cart.addItem(prod);
+			try {
+				cartmodel.updateTable(cart,(ClientBean) request.getSession().getAttribute("user"));
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
 		}
 		else
 		{
@@ -48,7 +55,7 @@ public class AddProdCarrelloServlet extends HttpServlet {
 					cart.getItems().get(i).setQtprod( prod.getQtprod() );
 					
 					try {
-						cartmodel.updateTable((CartBean) request.getSession().getAttribute("cart"),(ClientBean) request.getSession().getAttribute("user"));
+						cartmodel.updateTable(cart,(ClientBean) request.getSession().getAttribute("user"));
 					} catch (SQLException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
@@ -59,6 +66,12 @@ public class AddProdCarrelloServlet extends HttpServlet {
 				}
 			}
 			cart.addItem(prod);
+			try {
+				cartmodel.updateTable(cart,(ClientBean) request.getSession().getAttribute("user"));
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 		request.getSession().setAttribute("cart", cart);	
 		response.sendRedirect("prodotti.jsp");

@@ -9,8 +9,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import model.CarrelloManager;
 import model.ProductManager;
 import bean.CartBean;
+import bean.ClientBean;
 import bean.ProductBean;
 
 @WebServlet("/CheckoutCarrelloServlet")
@@ -26,7 +28,7 @@ public class CheckoutCarrelloServlet extends HttpServlet {
 		ProductManager model = new ProductManager();
 
 		CartBean cart = (CartBean) request.getSession().getAttribute("cart");
-
+		CarrelloManager cartmodel = new CarrelloManager();
 		try 
 		{
 			for(int i = 0; i<cart.getItems().size(); i++) 
@@ -55,6 +57,8 @@ public class CheckoutCarrelloServlet extends HttpServlet {
 					cart.getItems().get(i).setPrezzo(0);
 				}
 			}
+
+			cartmodel.updateTable(cart,(ClientBean) request.getSession().getAttribute("user"));
 
 			request.getSession().setAttribute("cart", cart);
 		} 
