@@ -12,8 +12,20 @@ import connection.DriverManagerConnectionPool;
 
 public class UserManager {
 
+	private static UserManager sing = null;
 
-	public UserBean doRetrieveByKey(String username) throws SQLException 
+	private UserManager() {}
+
+	public static synchronized UserManager getVerifyInput()
+	{
+		if(sing == null)
+		{
+			sing = new UserManager();
+		}
+		return sing;	
+	}
+	
+	public static UserBean doRetrieveByKey(String username) throws SQLException 
 	{
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
@@ -56,7 +68,7 @@ public class UserManager {
 	}
 
 
-	public Collection<UserBean> doRetrieveAll() throws SQLException
+	public static Collection<UserBean> doRetrieveAll() throws SQLException
 	{
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
@@ -94,7 +106,7 @@ public class UserManager {
 	}
 
 
-	public void doSave(UserBean user) throws SQLException
+	public static void doSave(UserBean user) throws SQLException
 	{
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
@@ -127,7 +139,7 @@ public class UserManager {
 	}
 
 
-	public void doUpdate(UserBean user) throws SQLException {
+	public static void doUpdate(UserBean user) throws SQLException {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 
@@ -160,7 +172,7 @@ public class UserManager {
 	}
 
 
-	public boolean doDelete(UserBean user) throws SQLException {
+	public static boolean doDelete(UserBean user) throws SQLException {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 

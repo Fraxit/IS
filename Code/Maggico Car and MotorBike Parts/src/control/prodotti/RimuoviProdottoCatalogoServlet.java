@@ -19,7 +19,6 @@ import javax.servlet.http.HttpServletResponse;
 public class RimuoviProdottoCatalogoServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	static ProductManager model = new ProductManager();
 
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.sendRedirect("index.jsp");
@@ -39,11 +38,11 @@ public class RimuoviProdottoCatalogoServlet extends HttpServlet {
 						response.sendRedirect("addItem.jsp");
 						return;
 					}
-					ProductBean bean = model.doRetrieveByKey(id);
+					ProductBean bean = ProductManager.doRetrieveByKey(id);
 					if(bean != null) 
-						model.doDelete(bean);
+						ProductManager.doDelete(bean);
 					request.getSession().removeAttribute("products");
-					request.getSession().setAttribute("products",model.doRetrieveAll());
+					request.getSession().setAttribute("products",ProductManager.doRetrieveAll());
 				} 
 			}
 		}
@@ -57,7 +56,7 @@ public class RimuoviProdottoCatalogoServlet extends HttpServlet {
 		try 
 		{
 			request.getSession().removeAttribute("products");
-			request.getSession().setAttribute("products",model.doRetrieveAll());
+			request.getSession().setAttribute("products",ProductManager.doRetrieveAll());
 		} 
 		catch(SQLException e) 
 		{

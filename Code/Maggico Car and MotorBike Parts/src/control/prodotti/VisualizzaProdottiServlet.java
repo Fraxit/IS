@@ -18,7 +18,6 @@ import javax.servlet.http.HttpServletResponse;
 public class VisualizzaProdottiServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	static ProductManager model = new ProductManager();
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
@@ -26,7 +25,7 @@ public class VisualizzaProdottiServlet extends HttpServlet {
 		try 
 		{
 			request.getSession().removeAttribute("products");
-			request.getSession().setAttribute("products",model.doRetrieveAll());
+			request.getSession().setAttribute("products",ProductManager.doRetrieveAll());
 			Collection<?> prods =(Collection<?>) request.getSession().getAttribute("products");
 			request.getSession().setAttribute("nProds", prods.size());
 		} 

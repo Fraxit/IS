@@ -25,7 +25,6 @@ public class CheckoutCarrelloServletTest extends Mockito{
 	private ProductBean prod;
 	private CartBean cart;
 	private CartBean tmpCart;
-	ProductManager model;
 	
 	
 	@Before
@@ -33,7 +32,6 @@ public class CheckoutCarrelloServletTest extends Mockito{
 	{
 		request = mock(HttpServletRequest.class);       
 		response = mock(HttpServletResponse.class);
-		model = new ProductManager();
 		cart = new CartBean();
 		tmpCart = new CartBean();
 		prod = new ProductBean();

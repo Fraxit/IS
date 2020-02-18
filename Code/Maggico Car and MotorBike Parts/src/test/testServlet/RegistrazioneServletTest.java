@@ -11,8 +11,7 @@ import javax.servlet.http.HttpSession;
 import org.mockito.Mockito;
 
 import control.registrazione.RegistrationServlet;
-import model.AdminManager;
-import model.ClientManager;
+
 import model.UserManager;
 import bean.AdminBean;
 import bean.ClientBean;
@@ -26,9 +25,6 @@ public class RegistrazioneServletTest extends Mockito {
 
 	private HttpServletRequest request;
 	private HttpServletResponse response;
-	UserManager model;
-	AdminManager modelAdmin;
-	ClientManager modelClient;
 	AdminBean admin;
 	ClientBean client;
 
@@ -37,9 +33,7 @@ public class RegistrazioneServletTest extends Mockito {
 	{
 		request = mock(HttpServletRequest.class);       
 		response = mock(HttpServletResponse.class);
-		model = new UserManager();
-		modelAdmin = new AdminManager();
-		modelClient = new ClientManager();
+		
 		admin = new AdminBean();
 		client = new ClientBean();
 		admin.setUsername("ma93");
@@ -131,8 +125,8 @@ public class RegistrazioneServletTest extends Mockito {
 	@After
 	public void remove() throws SQLException
 	{
-		model.doDelete(client);
-		model.doDelete(admin);
+		UserManager.doDelete(client);
+		UserManager.doDelete(admin);
 	}
 
 }

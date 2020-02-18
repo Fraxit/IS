@@ -10,8 +10,20 @@ import connection.DriverManagerConnectionPool;
 
 public class AdminManager  {
 
+	private static AdminManager sing = null;
 
-	public boolean isAdmin(String username) throws SQLException 
+	private AdminManager(){}
+	
+	public static synchronized AdminManager getVerifyInput()
+	{
+		if(sing == null)
+		{
+			sing = new AdminManager();
+		}
+		return sing;	
+	}
+	
+	public static boolean isAdmin(String username) throws SQLException 
 	{
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
@@ -49,7 +61,7 @@ public class AdminManager  {
 	}
 
 
-	public void doSave(AdminBean admin) throws SQLException {
+	public static void doSave(AdminBean admin) throws SQLException {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 

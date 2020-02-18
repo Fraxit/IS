@@ -19,14 +19,13 @@ import javax.servlet.http.HttpServletResponse;
 public class RicercaProdottoServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
       
-	static ProductManager model = new ProductManager();
  
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		if(request.getParameter("search") != null) 
 		{
 			try {
-				request.getSession().setAttribute("searchProducts",model.doRetrieveProdsByName((String) request.getParameter("search"),(Collection<ProductBean>) request.getSession().getAttribute("products")));
+				request.getSession().setAttribute("searchProducts",ProductManager.doRetrieveProdsByName((String) request.getParameter("search"),(Collection<ProductBean>) request.getSession().getAttribute("products")));
 				request.getSession().setAttribute("stringSearch", request.getParameter("search"));
 			} catch (SQLException e) {
 				response.sendRedirect("exception.jsp");

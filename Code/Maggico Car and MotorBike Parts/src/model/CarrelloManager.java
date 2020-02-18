@@ -15,8 +15,20 @@ import java.util.ArrayList;
 
 public class CarrelloManager {
 
+	private static CarrelloManager sing = null;
 
-	public CartBean doRetrieveAll(UserBean bean) throws SQLException 
+	private CarrelloManager(){}
+	
+	public static synchronized CarrelloManager getVerifyInput()
+	{
+		if(sing == null)
+		{
+			sing = new CarrelloManager();
+		}
+		return sing;	
+	}
+	
+	public static CartBean doRetrieveAll(UserBean bean) throws SQLException 
 	{
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
@@ -63,7 +75,7 @@ public class CarrelloManager {
 	}
 
 
-	public void truncateCart(ClientBean client) throws SQLException
+	public static void truncateCart(ClientBean client) throws SQLException
 	{
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
@@ -87,7 +99,7 @@ public class CarrelloManager {
 		}
 	}
 
-	public void pasteInDb(CartBean cart, ClientBean client) throws SQLException
+	public static void pasteInDb(CartBean cart, ClientBean client) throws SQLException
 	{
 
 		Connection connection = null;
@@ -126,7 +138,7 @@ public class CarrelloManager {
 		}
 	}
 
-	public void updateTable(CartBean cart, ClientBean client) throws SQLException
+	public static void updateTable(CartBean cart, ClientBean client) throws SQLException
 	{
 		try
 		{
@@ -139,7 +151,7 @@ public class CarrelloManager {
 		}
 	}
 
-	public void doSave(ClientBean user, int id_prod, int quantita) throws SQLException {
+	public static void doSave(ClientBean user, int id_prod, int quantita) throws SQLException {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 
@@ -170,7 +182,7 @@ public class CarrelloManager {
 	}
 
 
-	public void doUpdate(int id, int quantita, ClientBean client) throws SQLException {
+	public static void doUpdate(int id, int quantita, ClientBean client) throws SQLException {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 

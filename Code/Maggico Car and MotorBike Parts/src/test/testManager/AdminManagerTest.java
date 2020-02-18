@@ -17,8 +17,6 @@ import bean.AdminBean;
 
 public class AdminManagerTest extends Mockito{
 	boolean booleanRes;
-	AdminManager modelAdmin;
-	UserManager modelUser;
 	AdminBean admin;
 	AdminBean admin1;
 	String userAdmin;
@@ -29,8 +27,6 @@ public class AdminManagerTest extends Mockito{
 	@Before
 	public void setUp()
 	{
-		modelAdmin = new AdminManager();
-		modelUser = new UserManager();
 		
 		userAdmin = "Vincenzo";
 		otherUser = "Raff93";
@@ -49,28 +45,28 @@ public class AdminManagerTest extends Mockito{
 	@Test
 	public void isAdminTest() throws SQLException
 	{
-		booleanRes = modelAdmin.isAdmin(userAdmin);
+		booleanRes = AdminManager.isAdmin(userAdmin);
 		assertEquals(true, booleanRes);
 	}
 	
 	@Test
 	public void isNotAdminTest() throws SQLException
 	{
-		booleanRes = modelAdmin.isAdmin(otherUser);
+		booleanRes = AdminManager.isAdmin(otherUser);
 		assertEquals(false, booleanRes);
 	}
 	
 	@Test
 	public void doSaveTest() throws SQLException
 	{
-		modelUser.doSave(admin1);
-		modelAdmin.doSave(admin1);
+		UserManager.doSave(admin1);
+		AdminManager.doSave(admin1);
 	}
 	
 	@Test
 	public void doDeleteTest() throws SQLException
 	{
-		modelUser.doDelete(admin1);
+		UserManager.doDelete(admin1);
 	}
 	
 

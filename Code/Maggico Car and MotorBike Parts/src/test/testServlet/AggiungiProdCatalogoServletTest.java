@@ -23,7 +23,6 @@ public class AggiungiProdCatalogoServletTest extends Mockito {
 
 	private HttpServletRequest request;
 	private HttpServletResponse response;
-	private ProductManager model;
 	private ProductBean prod;
 	
 	@Before
@@ -31,7 +30,6 @@ public class AggiungiProdCatalogoServletTest extends Mockito {
 	{
 		request = mock(HttpServletRequest.class);       
 		response = mock(HttpServletResponse.class);
-		model = new ProductManager();
 		prod = new ProductBean();
 		prod.setNome("Ruote Bridgstone R18");
 		prod.setDescr("Oggetto molto bello");
@@ -127,6 +125,6 @@ public class AggiungiProdCatalogoServletTest extends Mockito {
 	@After
 	public void remove() throws SQLException
 	{
-		model.doDelete(prod);
+		ProductManager.doDelete(prod);
 	}
 }

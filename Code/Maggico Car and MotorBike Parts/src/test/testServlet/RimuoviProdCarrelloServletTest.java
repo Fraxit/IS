@@ -25,7 +25,6 @@ public class RimuoviProdCarrelloServletTest extends Mockito{
 	private HttpServletResponse response;
 	private ProductBean prod;
 	private CartBean cart;
-	ProductManager model;
 	private Integer id;
 	
 	
@@ -34,7 +33,6 @@ public class RimuoviProdCarrelloServletTest extends Mockito{
 	{
 		request = mock(HttpServletRequest.class);       
 		response = mock(HttpServletResponse.class);
-		model = new ProductManager();
 		cart = new CartBean();
 		prod = new ProductBean();
 		prod.setNome("oggetto");
@@ -43,8 +41,8 @@ public class RimuoviProdCarrelloServletTest extends Mockito{
 		prod.setPrezzo(13);
 		prod.setQtprod(100);
 		
-		model.doSave(prod);
-		id = model.doRetrieveByProduct(prod.getNome()).getId();
+		ProductManager.doSave(prod);
+		id = ProductManager.doRetrieveByProduct(prod.getNome()).getId();
 		cart.addItem(prod);
 	}
 
@@ -137,7 +135,7 @@ public class RimuoviProdCarrelloServletTest extends Mockito{
 	@After
 	public void remove() throws SQLException
 	{
-		model.doDelete(prod);
+		ProductManager.doDelete(prod);
 	}
 
 }

@@ -13,7 +13,6 @@ import bean.UserBean;
 
 public class UserManagerTest {
 	
-	private UserManager model;
 	private Collection<UserBean> users;
 	private UserBean user;
 	private UserBean userTmp;
@@ -21,7 +20,6 @@ public class UserManagerTest {
 	@Before
 	public void setUp()
 	{
-		model = new UserManager();
 		users = new ArrayList<UserBean>();
 		
 		user = new UserBean();
@@ -38,43 +36,43 @@ public class UserManagerTest {
 	@Test
 	public void doRetriveByKeyTest() throws SQLException
 	{
-		model.doRetrieveByKey("Raff93");
+		UserManager.doRetrieveByKey("Raff93");
 	}
 	
 	@Test
 	public void doRetriveByKeyNullTest() throws SQLException
 	{
-		model.doRetrieveByKey("vefrbtnbty");
+		UserManager.doRetrieveByKey("vefrbtnbty");
 	}
 
 	@Test
 	public void doRetriveAllTest() throws SQLException
 	{
-		users = model.doRetrieveAll();
+		users = UserManager.doRetrieveAll();
 	}
 	
 	@Test
 	public void doSaveTest() throws SQLException
 	{
-		model.doSave(user);
+		UserManager.doSave(user);
 	}
 	
 	@Test
 	public void doUpdateTest() throws SQLException
 	{
-		model.doUpdate(user);
+		UserManager.doUpdate(user);
 	}
 	
 	@Test
 	public void doDeleteTest() throws SQLException
 	{
-		model.doDelete(user);
+		UserManager.doDelete(user);
 	}
 	
 	@Test
 	public void doDeleteFailTest() throws SQLException
 	{
-		model.doDelete(userTmp);
+		UserManager.doDelete(userTmp);
 	}
 	
 }

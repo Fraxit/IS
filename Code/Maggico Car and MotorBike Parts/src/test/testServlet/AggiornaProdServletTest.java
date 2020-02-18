@@ -24,13 +24,11 @@ public class AggiornaProdServletTest extends Mockito {
 	private HttpServletRequest request;
 	private HttpServletResponse response;
 	private ProductBean prod;
-	private ProductManager model;
 	@Before
 	public void setUp()
 	{
 		request = mock(HttpServletRequest.class);       
 		response = mock(HttpServletResponse.class);
-		model = new ProductManager();
 		prod = new ProductBean();
 		prod.setNome("Oggetto");
 		
@@ -149,7 +147,7 @@ public class AggiornaProdServletTest extends Mockito {
 	@After
 	public void remove() throws SQLException
 	{
-		model.doDelete(prod);
+		ProductManager.doDelete(prod);
 	}
 	
 	

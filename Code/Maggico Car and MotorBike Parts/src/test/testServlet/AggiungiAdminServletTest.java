@@ -19,13 +19,11 @@ import bean.AdminBean;
 
 public class AggiungiAdminServletTest extends Mockito {
 
-	private UserManager model;
 	private AdminBean admin;
 	
 	@Before
 	public void setUp()
 	{
-		model = new UserManager();
 		admin = new AdminBean();
 		admin.setEmail("mikimik1@gmail.com");
 		admin.setPassword("Password1");
@@ -134,6 +132,6 @@ public class AggiungiAdminServletTest extends Mockito {
 	 @After
 	 public void remove() throws SQLException
 	 {
-		 model.doDelete(admin);
+		 UserManager.doDelete(admin);
 	 }
 }

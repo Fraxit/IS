@@ -19,7 +19,6 @@ import bean.ClientBean;
 public class LogoutServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	CarrelloManager cartmodel = new CarrelloManager();
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		response.sendRedirect("index.jsp");
@@ -37,7 +36,7 @@ public class LogoutServlet extends HttpServlet {
 			if(isAdmin == false)
 			{
 				try {
-					cartmodel.updateTable((CartBean) request.getSession().getAttribute("cart"),(ClientBean) request.getSession().getAttribute("user"));
+					CarrelloManager.updateTable((CartBean) request.getSession().getAttribute("cart"),(ClientBean) request.getSession().getAttribute("user"));
 				} catch (SQLException e) {
 					response.sendRedirect("exception.jsp");
 					e.printStackTrace();

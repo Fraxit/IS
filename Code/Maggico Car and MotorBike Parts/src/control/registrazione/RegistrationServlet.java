@@ -21,7 +21,6 @@ import model.ClientManager;
 public class RegistrationServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	static UserManager usermodel = new UserManager();
 
 
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -47,17 +46,16 @@ public class RegistrationServlet extends HttpServlet {
 			userbean.setEmail(email);
 			userbean.setPassword(password);
 
-			usermodel.doSave(userbean);		//inserimento nella tabella utente
+			UserManager.doSave(userbean);		//inserimento nella tabella utente
 
 			if(request.getParameter("action").equals("admin")){
-				AdminManager adminmodel = new AdminManager();
 				AdminBean admin = new AdminBean();
 
 				admin.setUsername(username);
 				admin.setEmail(email);
 				admin.setPassword(password);
 
-				adminmodel.doSave(admin);
+				AdminManager.doSave(admin);
 			} else {
 
 				String iban = request.getParameter("iban");
@@ -67,13 +65,12 @@ public class RegistrationServlet extends HttpServlet {
 					return;
 				} else {
 
-					ClientManager clientmodel = new ClientManager(); 
 					ClientBean clientbean = new ClientBean();
 
 					clientbean.setUsername(username);
 					clientbean.setIban(iban);
 
-					clientmodel.doSave(clientbean);					//inserimento nella tabella clienti
+					ClientManager.doSave(clientbean);					//inserimento nella tabella clienti
 				}
 			}
 

@@ -19,7 +19,6 @@ import model.AdminManager;
 public class AggiungiNuovoAdminServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	static UserManager usermodel = new UserManager();
 
 
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -45,17 +44,16 @@ public class AggiungiNuovoAdminServlet extends HttpServlet {
 			userbean.setEmail(email);
 			userbean.setPassword(password);
 
-			usermodel.doSave(userbean);
+			UserManager.doSave(userbean);
 
 			if(request.getParameter("action").equals("admin")){
-				AdminManager adminmodel = new AdminManager();
 				AdminBean admin = new AdminBean();
 
 				admin.setUsername(username);
 				admin.setEmail(email);
 				admin.setPassword(password);
 
-				adminmodel.doSave(admin);
+				AdminManager.doSave(admin);
 			}
 
 			response.sendRedirect("index.jsp");

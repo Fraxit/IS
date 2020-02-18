@@ -19,8 +19,6 @@ import bean.UserBean;
 public class CambioPasswordServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	static ClientManager clientmodel = new ClientManager();
-	static UserManager usermodel = new UserManager();
 
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
@@ -46,7 +44,7 @@ public class CambioPasswordServlet extends HttpServlet {
 					if (apsw.equals(admin.getPassword())) {
 						if (request.getParameter("nuovapass").equals(request.getParameter("confermapass"))) {
 							admin.setPassword(request.getParameter("nuovapass"));
-							usermodel.doUpdate(admin);
+							UserManager.doUpdate(admin);
 						}
 
 					} else {
@@ -68,7 +66,7 @@ public class CambioPasswordServlet extends HttpServlet {
 						if (request.getParameter("nuovapass").equals(request.getParameter("confermapass"))) {
 
 							client.setPassword(request.getParameter("nuovapass"));
-							clientmodel.doUpdate(client);
+							ClientManager.doUpdate(client);
 						}
 
 					} else {

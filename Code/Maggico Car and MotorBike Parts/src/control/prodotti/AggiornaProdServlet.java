@@ -19,7 +19,6 @@ import javax.servlet.http.HttpServletResponse;
 public class AggiornaProdServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	static ProductManager model = new ProductManager();
 
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.sendRedirect("index.jsp");
@@ -59,12 +58,12 @@ public class AggiornaProdServlet extends HttpServlet {
 					bean.setQtprod(quantity);
 					bean.setImglink(imglink);
 
-					model.doUpdate(bean);
+					ProductManager.doUpdate(bean);
 				}
 			}
 		
 			request.getSession().removeAttribute("products");
-			request.getSession().setAttribute("products",model.doRetrieveAll());
+			request.getSession().setAttribute("products",ProductManager.doRetrieveAll());
 		} 
 		catch(SQLException e) 
 		{

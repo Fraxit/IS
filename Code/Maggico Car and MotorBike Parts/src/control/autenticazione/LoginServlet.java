@@ -24,10 +24,6 @@ public class LoginServlet extends HttpServlet
 {
 	private static final long serialVersionUID = 1L;
 
-	static UserManager usermodel = new UserManager();
-	static ClientManager clientmodel = new ClientManager();
-	static AdminManager adminmodel = new AdminManager();
-	static CarrelloManager cartmodel = new CarrelloManager();
 
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
 	{
@@ -47,9 +43,9 @@ public class LoginServlet extends HttpServlet
 		try 
 		{
 			
-			UserBean userbean = usermodel.doRetrieveByKey(username);
+			UserBean userbean = UserManager.doRetrieveByKey(username);
 			
-			isAdmin = adminmodel.isAdmin(username);
+			isAdmin = AdminManager.isAdmin(username);
 
 			
 			if(userbean != null) 
@@ -63,13 +59,13 @@ public class LoginServlet extends HttpServlet
 					}
 					else  
 					{
-						ClientBean clientbean = clientmodel.doRetrieveByKey(username);
+						ClientBean clientbean = ClientManager.doRetrieveByKey(username);
 
 						request.getSession().setAttribute("isAdmin", isAdmin);
 						
 						request.getSession().setAttribute("user", clientbean);
 
-						CartBean cart = cartmodel.doRetrieveAll(clientbean);
+						CartBean cart = CarrelloManager.doRetrieveAll(clientbean);
 						request.getSession().setAttribute("cart", cart);
 					}
 				}

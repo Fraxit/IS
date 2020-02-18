@@ -18,8 +18,6 @@ public class CarrelloManagerTest {
 
 	private CartBean cart;
 
-	private CarrelloManager model;
-	private ProductManager modelp;
 	private UserBean user;
 	ClientBean client;
 	ProductBean prod;
@@ -27,8 +25,6 @@ public class CarrelloManagerTest {
 	@Before
 	public void setUp() throws SQLException
 	{
-		model = new CarrelloManager();
-		modelp = new ProductManager();
 		
 		cart = new CartBean();
 		user = new UserBean();
@@ -38,7 +34,7 @@ public class CarrelloManagerTest {
 		client = new ClientBean();
 		client.setUsername("Raff93");
 		
-		prod = modelp.doRetrieveByKey(4);
+		prod = ProductManager.doRetrieveByKey(4);
 		prod.setQtprod(5);
 		
 		cart.addItem(prod);
@@ -48,25 +44,25 @@ public class CarrelloManagerTest {
 	@Test
 	public void pasteInDbTest() throws SQLException
 	{
-		model.updateTable(cart, client);
+		CarrelloManager.updateTable(cart, client);
 	}
 	
 	@Test
 	public void doRetriveAllTest() throws SQLException
 	{
-		cart = model.doRetrieveAll(user);
+		cart = CarrelloManager.doRetrieveAll(user);
 	}
 	
 	@Test
 	public void doSaveTest() throws SQLException
 	{
-		model.doSave(client, 5, 3);
+		CarrelloManager.doSave(client, 5, 3);
 	}
 	
 	@Test
 	public void doUpdateTest() throws SQLException
 	{
-		model.doUpdate(5, 2, client);
+		CarrelloManager.doUpdate(5, 2, client);
 	}
 	
 }

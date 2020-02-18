@@ -12,8 +12,20 @@ import connection.DriverManagerConnectionPool;
 
 public class ClientManager {
 
-
-	public ClientBean doRetrieveByKey(String username) throws SQLException 
+	private static ClientManager sing = null;
+	
+	private ClientManager() {}
+	
+	public static synchronized ClientManager getVerifyInput()
+	{
+		if(sing == null)
+		{
+			sing = new ClientManager();
+		}
+		return sing;	
+	}
+	
+	public static ClientBean doRetrieveByKey(String username) throws SQLException 
 	{
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
@@ -63,7 +75,7 @@ public class ClientManager {
 	}
 
 
-	public Collection<ClientBean> doRetrieveAll() throws SQLException {
+	public static Collection<ClientBean> doRetrieveAll() throws SQLException {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 
@@ -101,7 +113,7 @@ public class ClientManager {
 	}
 
 
-	public void doSave(ClientBean client) throws SQLException {
+	public static void doSave(ClientBean client) throws SQLException {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 
@@ -132,7 +144,7 @@ public class ClientManager {
 	}
 
 
-	public void doUpdate(ClientBean client) throws SQLException {
+	public static void doUpdate(ClientBean client) throws SQLException {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 

@@ -16,7 +16,6 @@ import bean.ProductBean;
 public class VisualizzaProdCatalogoServlet extends HttpServlet
 {
 	private static final long serialVersionUID = 1L;
-	ProductManager model = new ProductManager();
 
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
@@ -29,7 +28,7 @@ public class VisualizzaProdCatalogoServlet extends HttpServlet
 		int id = Integer.parseInt(request.getParameter("id"));
 
 		try {
-			ProductBean bean = model.doRetrieveByKey(id);
+			ProductBean bean = ProductManager.doRetrieveByKey(id);
 			request.getSession().setAttribute("bean", bean);
 
 		}

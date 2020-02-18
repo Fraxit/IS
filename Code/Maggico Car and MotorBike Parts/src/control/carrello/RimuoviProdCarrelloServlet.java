@@ -25,25 +25,22 @@ public class RimuoviProdCarrelloServlet extends HttpServlet {
 	}
 
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		ProductManager model = new ProductManager();
 		String action = request.getParameter("action");
 
 		CartBean cart = (CartBean) request.getSession().getAttribute("cart");
-
-		CarrelloManager cartmodel = new CarrelloManager();
 
 		if(action != null) {
 			if(action.equals("remove")) {
 				try {
 					int id = Integer.parseInt(request.getParameter("id"));
-					ProductBean prod = model.doRetrieveByKey(id);
+					ProductBean prod = ProductManager.doRetrieveByKey(id);
 
 					for(int i=0; i< cart.getItems().size(); i++)
 					{
 						if( cart.getItems().get(i).getId() == prod.getId() )
 						{
 							cart.deleteItem(prod);
-							cartmodel.updateTable(cart,(ClientBean) request.getSession().getAttribute("user"));
+							CarrelloManager.updateTable(cart,(ClientBean) request.getSession().getAttribute("user"));
 						}
 					}
 				}

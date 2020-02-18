@@ -27,7 +27,6 @@ public class AddProdCarrelloServlet extends HttpServlet {
 
 
 		CartBean cart = (CartBean) request.getSession().getAttribute("cart");
-		CarrelloManager cartmodel = new CarrelloManager();
 
 
 		ProductBean prod = (ProductBean) request.getSession().getAttribute("bean");
@@ -38,7 +37,7 @@ public class AddProdCarrelloServlet extends HttpServlet {
 		{
 			cart.addItem(prod);
 			try {
-				cartmodel.updateTable(cart,(ClientBean) request.getSession().getAttribute("user"));
+				CarrelloManager.updateTable(cart,(ClientBean) request.getSession().getAttribute("user"));
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
@@ -55,7 +54,7 @@ public class AddProdCarrelloServlet extends HttpServlet {
 					
 					request.getSession().setAttribute("cart", cart);	
 					try {
-						cartmodel.updateTable(cart,(ClientBean) request.getSession().getAttribute("user"));
+						CarrelloManager.updateTable(cart,(ClientBean) request.getSession().getAttribute("user"));
 					} catch (SQLException e) {
 						e.printStackTrace();
 					}
@@ -65,7 +64,7 @@ public class AddProdCarrelloServlet extends HttpServlet {
 			}
 			cart.addItem(prod);
 			try {
-				cartmodel.updateTable(cart,(ClientBean) request.getSession().getAttribute("user"));
+				CarrelloManager.updateTable(cart,(ClientBean) request.getSession().getAttribute("user"));
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}

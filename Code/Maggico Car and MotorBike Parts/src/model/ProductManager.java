@@ -13,8 +13,20 @@ import connection.DriverManagerConnectionPool;
 
 public class ProductManager {
 
+	private static ProductManager sing = null;
 
-	public ProductBean doRetrieveByKey(int code) throws SQLException {
+	private ProductManager() {}
+
+	public static synchronized ProductManager getVerifyInput()
+	{
+		if(sing == null)
+		{
+			sing = new ProductManager();
+		}
+		return sing;	
+	}
+	
+	public static ProductBean doRetrieveByKey(int code) throws SQLException {
 
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
@@ -52,7 +64,7 @@ public class ProductManager {
 		return bean;
 	}
 	
-	public ProductBean doRetrieveByProduct(String nome) throws SQLException {
+	public static ProductBean doRetrieveByProduct(String nome) throws SQLException {
 
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
@@ -90,7 +102,7 @@ public class ProductManager {
 		return bean;
 	}
 
-	public Collection<ProductBean> doRetrieveAll() throws SQLException {
+	public static Collection<ProductBean> doRetrieveAll() throws SQLException {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 
@@ -129,7 +141,7 @@ public class ProductManager {
 	}
 
 
-	public void doSave(ProductBean product) throws SQLException {
+	public static void doSave(ProductBean product) throws SQLException {
 
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
@@ -165,7 +177,7 @@ public class ProductManager {
 	}
 
 
-	public void doUpdate(ProductBean product) throws SQLException {
+	public static void doUpdate(ProductBean product) throws SQLException {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 
@@ -201,7 +213,7 @@ public class ProductManager {
 	}
 
 
-	public boolean doDelete(ProductBean product) throws SQLException {
+	public static boolean doDelete(ProductBean product) throws SQLException {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 
@@ -233,7 +245,7 @@ public class ProductManager {
 	}
 
 
-	public Collection<ProductBean> doRetrieveProdsByName(String search, Collection<ProductBean> prodotti) throws SQLException {
+	public static Collection<ProductBean> doRetrieveProdsByName(String search, Collection<ProductBean> prodotti) throws SQLException {
 		Collection<ProductBean> tmpProd = new ArrayList<ProductBean>();
 		for(ProductBean tmp : prodotti)
 		{

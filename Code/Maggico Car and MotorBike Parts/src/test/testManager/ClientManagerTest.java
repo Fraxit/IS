@@ -16,19 +16,15 @@ import bean.UserBean;
 
 public class ClientManagerTest {
 
-	private ClientManager model;
 	private Collection<ClientBean> clients;
 	
 	private ClientBean client;
 	private UserBean user;
-	private UserManager modelu;
 	
 	@Before
 	public void setUp() throws SQLException
 	{
-		model = new ClientManager();
 		client = new ClientBean();
-		modelu = new UserManager();
 		user = new UserBean();
 		
 		user.setUsername("Michelino93");
@@ -39,7 +35,7 @@ public class ClientManagerTest {
 		client.setEmail("MicheleCoscione@gmail.com");
 		client.setPassword("Password123");
 		
-		modelu.doSave(user);
+		UserManager.doSave(user);
 		
 		client.setUsername("Michelino93");
 		client.setIban("IT54f7564758697057684536457");
@@ -47,32 +43,32 @@ public class ClientManagerTest {
 	
 	@Test
 	public void doRetriveByKeyTest() throws SQLException {
-		model.doRetrieveByKey("Raff93");
+		ClientManager.doRetrieveByKey("Raff93");
 	}
 	
 	@Test
 	public void doRetriveByKeyNullTest() throws SQLException {
-		model.doRetrieveByKey("jwhvfeyud");
+		ClientManager.doRetrieveByKey("jwhvfeyud");
 	}
 
 	@Test
 	public void doRetriveAllTest() throws SQLException {
-		clients = model.doRetrieveAll();
+		clients = ClientManager.doRetrieveAll();
 	}
 	
 	@Test
 	public void doDeleteTest() throws SQLException {
-		model.doSave(client);
+		ClientManager.doSave(client);
 	}
 	
 	@Test
 	public void doUpdateTest() throws SQLException {
-		model.doUpdate(client);
+		ClientManager.doUpdate(client);
 	}
 	
 	@After
 	public void reset() throws SQLException
 	{
-		modelu.doDelete(user);
+		UserManager.doDelete(user);
 	}
 }

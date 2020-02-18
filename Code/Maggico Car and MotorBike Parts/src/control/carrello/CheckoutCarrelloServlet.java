@@ -25,15 +25,13 @@ public class CheckoutCarrelloServlet extends HttpServlet {
 	}
 
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		ProductManager model = new ProductManager();
 
 		CartBean cart = (CartBean) request.getSession().getAttribute("cart");
-		CarrelloManager cartmodel = new CarrelloManager();
 		try 
 		{
 			for(int i = 0; i<cart.getItems().size(); i++) 
 			{
-				ProductBean prod = model.doRetrieveByKey(cart.getItems().get(i).getId());
+				ProductBean prod = ProductManager.doRetrieveByKey(cart.getItems().get(i).getId());
 				int newqt;
 				if(cart.getItems().get(i).getQtprod() == -1)
 				{
@@ -47,7 +45,7 @@ public class CheckoutCarrelloServlet extends HttpServlet {
 				if(newqt >= 0)
 				{
 					prod.setQtprod(newqt);
-					model.doUpdate(prod);
+					ProductManager.doUpdate(prod);
 					cart.getItems().remove(cart.getItems().get(i));
 					i = i-1;
 				}
@@ -58,7 +56,7 @@ public class CheckoutCarrelloServlet extends HttpServlet {
 				}
 			}
 
-			cartmodel.updateTable(cart,(ClientBean) request.getSession().getAttribute("user"));
+			CarrelloManager.updateTable(cart,(ClientBean) request.getSession().getAttribute("user"));
 
 			request.getSession().setAttribute("cart", cart);
 		} 
