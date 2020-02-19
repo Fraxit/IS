@@ -31,11 +31,11 @@
 				<form id="updateprod"
 					action="AggiornaProdServlet?action=update&id=<%=bean.getId()%>" method="post" onsubmit="event.preventDefault(); validateUpdate(this)">
 
-					<label for="pname">name</label><br> 
+					<label for="pname">Nome</label><br> 
 					<input name="pname"	type="text" required placeholder="enter name"
 					value="<%=bean.getNome()%>"><br> 
 					
-					<label for="pdescription">Description</label><br>
+					<label for="pdescription">Descrizione</label><br>
 					<textarea name="pdescription" type="text" rows="3" maxlength="100" required><%=bean.getDescr()%></textarea>
 					<br> 
 					
@@ -45,7 +45,7 @@
 					<label for="pquantity">Quantità</label><br> 
 					<input name="pquantity" type="number" min="1" value="<%=bean.getQtprod()%>" required value="<%=bean.getQtprod()%>""><br> 
 					
-					<label for="pimglink">Image link:</label><br> 
+					<label for="pimglink">Immagine:</label><br> 
 					<input name="pimglink" type="text" value="<%=bean.getImglink()%>" required value="<%=bean.getImglink()%>""><br> 
 					
 					<input id="submitBttn" type="submit" value="Update">

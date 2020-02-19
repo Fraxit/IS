@@ -14,8 +14,8 @@
 				<ul class="address">
 					<li>Raffaele Coscione</li>
 					<li>Francesco Carotenuto</li>
-					<li>Giovanni Renzulli</li>
 					<li>Vincenzo Tortora</li>
+					<li>Giovanni Renzulli</li>
 				</ul>
 			</div>  
 
