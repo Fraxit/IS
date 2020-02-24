@@ -26,7 +26,7 @@ public class AggiungiProdCatalogoServlet extends HttpServlet {
 
 
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+		ProductManager model = ProductManager.getProductManager();
 		try {
 			String name = request.getParameter("insname");
 			String description = request.getParameter("insdescription");
@@ -51,10 +51,10 @@ public class AggiungiProdCatalogoServlet extends HttpServlet {
 
 			ProductManager.doSave(bean);
 			request.getSession().removeAttribute("products");
-			request.getSession().setAttribute("products",ProductManager.doRetrieveAll());
+			request.getSession().setAttribute("products",model.doRetrieveAll());
 
 			request.getSession().removeAttribute("products");
-			request.getSession().setAttribute("products",ProductManager.doRetrieveAll());
+			request.getSession().setAttribute("products",model.doRetrieveAll());
 		} 
 		catch(SQLException e) 
 		{

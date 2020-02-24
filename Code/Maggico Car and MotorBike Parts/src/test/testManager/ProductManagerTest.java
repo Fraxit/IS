@@ -14,12 +14,14 @@ public class ProductManagerTest {
 	private volatile ProductBean prodTmp;
 	private int idTmp;
 	private ArrayList<ProductBean> prodotti;
+	private ProductManager model;
 	
 	@Before
 	public void setUp() throws SQLException
 	{
 		prodotti = new ArrayList<>();
-		prodotti.addAll(ProductManager.doRetrieveAll());
+		model = ProductManager.getProductManager();
+		prodotti.addAll(model.doRetrieveAll());
 		
 		prodTmp = new ProductBean();
 		prodTmp.setNome("ProdottoTest");
@@ -33,20 +35,20 @@ public class ProductManagerTest {
 	@Test
 	public void doRetriveAllTest() throws SQLException
 	{
-		prodotti.addAll(ProductManager.doRetrieveAll());
+		prodotti.addAll(model.doRetrieveAll());
 		
 	}
 	
 	@Test
 	public void doSaveTest() throws SQLException
 	{
-		ProductManager.doSave(prodTmp);
+		model.doSave(prodTmp);
 	}
 	
 	@Test
 	public void doRetrieveProdsByNameTest() throws SQLException
 	{
-		prodotti.addAll(ProductManager.doRetrieveProdsByName("nsjdvbfd", prodotti));
+		prodotti.addAll(model.doRetrieveProdsByName("nsjdvbfd", prodotti));
 		
 
 	}	
@@ -55,18 +57,18 @@ public class ProductManagerTest {
 	@Test
 	public void doUpdateTest() throws SQLException
 	{
-		ProductManager.doUpdate(prodTmp);
+		model.doUpdate(prodTmp);
 	}
 	
 	@Test
 	public void doRetriveByKeyTest() throws SQLException
 	{
-		ProductManager.doRetrieveByKey(prodTmp.getId());
+		model.doRetrieveByKey(prodTmp.getId());
 	}
 	
 	@Test
 	public void doDeleteTest() throws SQLException
 	{
-		ProductManager.doDelete(prodTmp);
+		model.doDelete(prodTmp);
 	}
 }

@@ -17,7 +17,7 @@ import bean.UserBean;
 public class CarrelloManagerTest {
 
 	private CartBean cart;
-
+	private ProductManager model;
 	private UserBean user;
 	ClientBean client;
 	ProductBean prod;
@@ -25,7 +25,7 @@ public class CarrelloManagerTest {
 	@Before
 	public void setUp() throws SQLException
 	{
-		
+		model = ProductManager.getProductManager();
 		cart = new CartBean();
 		user = new UserBean();
 		prod = new ProductBean();
@@ -34,7 +34,7 @@ public class CarrelloManagerTest {
 		client = new ClientBean();
 		client.setUsername("Raff93");
 		
-		prod = ProductManager.doRetrieveByKey(4);
+		prod = model.doRetrieveByKey(4);
 		prod.setQtprod(5);
 		
 		cart.addItem(prod);

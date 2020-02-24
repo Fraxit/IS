@@ -20,12 +20,13 @@ public class VisualizzaProdottiServlet extends HttpServlet {
 
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		ProductManager model = ProductManager.getProductManager();
 
 
 		try 
 		{
 			request.getSession().removeAttribute("products");
-			request.getSession().setAttribute("products",ProductManager.doRetrieveAll());
+			request.getSession().setAttribute("products",model.doRetrieveAll());
 			Collection<?> prods =(Collection<?>) request.getSession().getAttribute("products");
 			request.getSession().setAttribute("nProds", prods.size());
 		} 

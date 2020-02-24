@@ -19,6 +19,7 @@ public class VisualizzaProdCatalogoServlet extends HttpServlet
 
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+		ProductManager model = ProductManager.getProductManager();
 		if( request.getParameter("id") == null )
 		{
 			response.sendRedirect("index.jsp");
@@ -28,7 +29,7 @@ public class VisualizzaProdCatalogoServlet extends HttpServlet
 		int id = Integer.parseInt(request.getParameter("id"));
 
 		try {
-			ProductBean bean = ProductManager.doRetrieveByKey(id);
+			ProductBean bean = model.doRetrieveByKey(id);
 			request.getSession().setAttribute("bean", bean);
 
 		}

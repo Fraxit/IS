@@ -27,7 +27,7 @@ public class RimuoviProdottoCatalogoServlet extends HttpServlet {
 
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String action = request.getParameter("action");
-
+		ProductManager model = ProductManager.getProductManager();
 		try {
 
 			if(action != null) {
@@ -38,11 +38,11 @@ public class RimuoviProdottoCatalogoServlet extends HttpServlet {
 						response.sendRedirect("addItem.jsp");
 						return;
 					}
-					ProductBean bean = ProductManager.doRetrieveByKey(id);
+					ProductBean bean = model.doRetrieveByKey(id);
 					if(bean != null) 
 						ProductManager.doDelete(bean);
 					request.getSession().removeAttribute("products");
-					request.getSession().setAttribute("products",ProductManager.doRetrieveAll());
+					request.getSession().setAttribute("products",model.doRetrieveAll());
 				} 
 			}
 		}
@@ -56,7 +56,7 @@ public class RimuoviProdottoCatalogoServlet extends HttpServlet {
 		try 
 		{
 			request.getSession().removeAttribute("products");
-			request.getSession().setAttribute("products",ProductManager.doRetrieveAll());
+			request.getSession().setAttribute("products",model.doRetrieveAll());
 		} 
 		catch(SQLException e) 
 		{

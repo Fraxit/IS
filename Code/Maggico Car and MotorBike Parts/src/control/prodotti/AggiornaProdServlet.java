@@ -27,7 +27,7 @@ public class AggiornaProdServlet extends HttpServlet {
 
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String action = request.getParameter("action");
-
+		ProductManager model = ProductManager.getProductManager();
 		try {
 
 			if(action != null) {
@@ -63,7 +63,7 @@ public class AggiornaProdServlet extends HttpServlet {
 			}
 		
 			request.getSession().removeAttribute("products");
-			request.getSession().setAttribute("products",ProductManager.doRetrieveAll());
+			request.getSession().setAttribute("products",model.doRetrieveAll());
 		} 
 		catch(SQLException e) 
 		{

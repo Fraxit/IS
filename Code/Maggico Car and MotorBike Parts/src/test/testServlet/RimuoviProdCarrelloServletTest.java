@@ -26,11 +26,13 @@ public class RimuoviProdCarrelloServletTest extends Mockito{
 	private ProductBean prod;
 	private CartBean cart;
 	private Integer id;
+	ProductManager model;
 	
 	
 	@Before
 	public void setUp() throws SQLException
 	{
+		model = ProductManager.getProductManager();
 		request = mock(HttpServletRequest.class);       
 		response = mock(HttpServletResponse.class);
 		cart = new CartBean();
@@ -42,7 +44,7 @@ public class RimuoviProdCarrelloServletTest extends Mockito{
 		prod.setQtprod(100);
 		
 		ProductManager.doSave(prod);
-		id = ProductManager.doRetrieveByProduct(prod.getNome()).getId();
+		id = model.doRetrieveByProduct(prod.getNome()).getId();
 		cart.addItem(prod);
 	}
 

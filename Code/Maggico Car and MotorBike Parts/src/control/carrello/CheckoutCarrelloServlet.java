@@ -27,11 +27,12 @@ public class CheckoutCarrelloServlet extends HttpServlet {
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		CartBean cart = (CartBean) request.getSession().getAttribute("cart");
+		ProductManager model = ProductManager.getProductManager();
 		try 
 		{
 			for(int i = 0; i<cart.getItems().size(); i++) 
 			{
-				ProductBean prod = ProductManager.doRetrieveByKey(cart.getItems().get(i).getId());
+				ProductBean prod = model.doRetrieveByKey(cart.getItems().get(i).getId());
 				int newqt;
 				if(cart.getItems().get(i).getQtprod() == -1)
 				{

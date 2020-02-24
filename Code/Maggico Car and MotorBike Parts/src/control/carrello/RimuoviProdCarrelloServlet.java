@@ -28,12 +28,12 @@ public class RimuoviProdCarrelloServlet extends HttpServlet {
 		String action = request.getParameter("action");
 
 		CartBean cart = (CartBean) request.getSession().getAttribute("cart");
-
+		ProductManager model = ProductManager.getProductManager();
 		if(action != null) {
 			if(action.equals("remove")) {
 				try {
 					int id = Integer.parseInt(request.getParameter("id"));
-					ProductBean prod = ProductManager.doRetrieveByKey(id);
+					ProductBean prod = model.doRetrieveByKey(id);
 
 					for(int i=0; i< cart.getItems().size(); i++)
 					{

@@ -17,7 +17,7 @@ public class ProductManager {
 
 	private ProductManager() {}
 
-	public static synchronized ProductManager getVerifyInput()
+	public static synchronized ProductManager getProductManager()
 	{
 		if(sing == null)
 		{
@@ -26,7 +26,7 @@ public class ProductManager {
 		return sing;	
 	}
 	
-	public static ProductBean doRetrieveByKey(int code) throws SQLException {
+	public ProductBean doRetrieveByKey(int code) throws SQLException {
 
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
@@ -64,7 +64,7 @@ public class ProductManager {
 		return bean;
 	}
 	
-	public static ProductBean doRetrieveByProduct(String nome) throws SQLException {
+	public ProductBean doRetrieveByProduct(String nome) throws SQLException {
 
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
@@ -102,7 +102,7 @@ public class ProductManager {
 		return bean;
 	}
 
-	public static Collection<ProductBean> doRetrieveAll() throws SQLException {
+	public Collection<ProductBean> doRetrieveAll() throws SQLException {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 
@@ -247,6 +247,8 @@ public class ProductManager {
 
 	public static Collection<ProductBean> doRetrieveProdsByName(String search, Collection<ProductBean> prodotti) throws SQLException {
 		Collection<ProductBean> tmpProd = new ArrayList<ProductBean>();
+		ProductManager model = ProductManager.getProductManager();
+
 		for(ProductBean tmp : prodotti)
 		{
 			System.out.println(tmp.toString() + " " + search);
@@ -262,7 +264,7 @@ public class ProductManager {
 			System.out.println("é Vuoto");
 			System.out.println(search);
 
-			tmpProd = doRetrieveAll();
+			tmpProd = model.doRetrieveAll();
 		}
 
 		return tmpProd;
