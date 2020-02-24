@@ -16,7 +16,7 @@ public class UserManager {
 
 	private UserManager() {}
 
-	public static synchronized UserManager getVerifyInput()
+	public static synchronized UserManager getUserManager()
 	{
 		if(sing == null)
 		{

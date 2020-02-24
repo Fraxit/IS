@@ -19,12 +19,14 @@ public class CarrelloManagerTest {
 	private CartBean cart;
 	private ProductManager model;
 	private UserBean user;
-	ClientBean client;
-	ProductBean prod;
+	private ClientBean client;
+	private ProductBean prod;
+	private CarrelloManager modelCart;
 	
 	@Before
 	public void setUp() throws SQLException
 	{
+		modelCart = CarrelloManager.getCarrelloManager();
 		model = ProductManager.getProductManager();
 		cart = new CartBean();
 		user = new UserBean();

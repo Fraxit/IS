@@ -21,13 +21,13 @@ public class AdminManagerTest extends Mockito{
 	AdminBean admin1;
 	String userAdmin;
 	String otherUser;
-	
+	AdminManager model;
 	Collection<AdminBean> admins;
 	
 	@Before
 	public void setUp()
 	{
-		
+		model = AdminManager.getAdminManager();
 		userAdmin = "Vincenzo";
 		otherUser = "Raff93";
 		

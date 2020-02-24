@@ -16,7 +16,7 @@ public class ClientManager {
 	
 	private ClientManager() {}
 	
-	public static synchronized ClientManager getVerifyInput()
+	public static synchronized ClientManager getClientManager()
 	{
 		if(sing == null)
 		{

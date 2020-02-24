@@ -19,7 +19,7 @@ public class CarrelloManager {
 
 	private CarrelloManager(){}
 	
-	public static synchronized CarrelloManager getVerifyInput()
+	public static synchronized CarrelloManager getCarrelloManager()
 	{
 		if(sing == null)
 		{

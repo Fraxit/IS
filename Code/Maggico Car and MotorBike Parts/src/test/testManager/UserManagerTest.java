@@ -16,12 +16,12 @@ public class UserManagerTest {
 	private Collection<UserBean> users;
 	private UserBean user;
 	private UserBean userTmp;
-
+	private UserManager model;
 	@Before
 	public void setUp()
 	{
 		users = new ArrayList<UserBean>();
-		
+		model = UserManager.getUserManager();
 		user = new UserBean();
 		user.setUsername("LuigiCrisci");
 		user.setEmail("Giggio.crisci@gmail.com");

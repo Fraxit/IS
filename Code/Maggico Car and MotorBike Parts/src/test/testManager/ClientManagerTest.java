@@ -20,13 +20,13 @@ public class ClientManagerTest {
 	
 	private ClientBean client;
 	private UserBean user;
-	
+	private ClientManager model;
 	@Before
 	public void setUp() throws SQLException
 	{
 		client = new ClientBean();
 		user = new UserBean();
-		
+		model = ClientManager.getClientManager();
 		user.setUsername("Michelino93");
 		user.setEmail("MicheleCoscione@gmail.com");
 		user.setPassword("Password123");

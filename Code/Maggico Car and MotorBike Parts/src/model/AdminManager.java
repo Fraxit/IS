@@ -14,7 +14,7 @@ public class AdminManager  {
 
 	private AdminManager(){}
 	
-	public static synchronized AdminManager getVerifyInput()
+	public static synchronized AdminManager getAdminManager()
 	{
 		if(sing == null)
 		{
